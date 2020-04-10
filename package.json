@@ -4,8 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js",
-    "seed": "node ./bin/seed.js"
+    "build-client": "webpack -p",
+    "deploy": "script/deploy",
+    "start": "node main.js",
+    "start:dev": "npm run build-watch & npm run start-server",
+    "server": "nodemon main",
+    "start-server": "nodemon --watch server main.js -e html,js,css",
+    "build-watch": "webpack -w",
+    "start-dev": "webpack -w & nodemon --watch server.js",
+    "seed": "node ./bin/seed.js",
+    "test": "mocha test/spec.js --watch"
   },
   "repository": {
     "type": "git",
@@ -39,6 +47,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "babel-polyfill": "^6.26.0",

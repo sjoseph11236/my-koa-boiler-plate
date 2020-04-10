@@ -13,7 +13,6 @@ const authRouter = require('./auth');
 
 //Intialize app.  
 const app =  new Koa();
-const PORT = process.env.PORT ||3000; 
 
 // Session CONFIG
 const CONFIG =  {
@@ -64,11 +63,4 @@ app.use(apiRouter.routes());
 app.use(authRouter.routes());
 
 
-// // Start the app..
-// app.listen(PORT, () => console.log(`Server is listening on PORT: ${PORT}`));
-
-db.sync({force: true})
-  .then(() => {
-    console.log('db synced');
-    app.listen(PORT, () => console.log(`Server is listening on PORT: ${PORT}`));
-  });
+module.exports = app;

@@ -32,6 +32,22 @@
     "koa-static": "^5.0.0",
     "pg": "^8.0.0",
     "pg-hstore": "^2.3.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "sequelize": "^5.21.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
+    "chai": "^4.2.0",
+    "css-loader": "^3.5.1",
+    "mocha": "^7.1.1",
+    "style-loader": "^1.1.3",
+    "supertest": "^4.0.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }

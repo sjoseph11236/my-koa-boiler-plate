@@ -59,8 +59,12 @@ app.use(passport.session());
 app.use(static('./public'));
 
 // Sends index.html
-app.use( async (ctx) => {
-  await send(ctx, ctx.path, { root: __dirname + '/public' });
+// app.use( async (ctx) => {
+//   await send(ctx, ctx.path, { root: __dirname + '/public' });
+// })
+
+app.use(async (ctx) => {
+  await send(ctx, '../public/index.html');
 })
 
 // // Router Middleware

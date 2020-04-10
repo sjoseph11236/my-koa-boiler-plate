@@ -11,14 +11,14 @@ const SignIn = () => {
             <div className="field">
               <label className="label">Email</label>
               <div className="control">
-                <input className="input is-success" type="email" placeholder="Email" name='email'  onChange={null} value={email} />
+                <input className="input is-success" type="email" placeholder="Email" name='email'  onChange={null} value={'email'} />
               </div>
             </div>
 
             <div className="field">
               <label className="label">Password</label>
               <div className="control">
-                <input className="input is-success" type="password" placeholder="Password" name='password'  onChange={null} value={password}/>
+                <input className="input is-success" type="password" placeholder="Password" name='password'  onChange={null} value={'password'}/>
               </div>
             </div>
             

@@ -1,5 +1,6 @@
 const Koa = require('koa');
 const { db } = require('./db/');
+const send = require('koa-send');
 const logger = require('koa-logger');
 const static = require('koa-static');
 const session = require('koa-session');
@@ -57,6 +58,10 @@ app.use(passport.session());
 // Static middlware
 app.use(static('./public'));
 
+// Sends index.html
+app.use( async (ctx) => {
+  await send(ctx, ctx.path, { root: __dirname + '/public' });
+})
 
 // // Router Middleware
 app.use(apiRouter.routes());

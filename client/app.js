@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './components/Nav';
-// import Routes from './routes';
+import Routes from './routes';
 
 const App = () => { 
   return(
@@ -17,7 +17,7 @@ const App = () => {
       </section>
       <section className="section">
         <Nav />
-        {/* <Routes /> */}
+        <Routes />
       </section> 
     </div>  
   )

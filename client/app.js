@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Nav from './components/Nav';
+import Nav from './components/Nav';
 // import Routes from './routes';
 
 const App = () => { 
@@ -15,10 +15,10 @@ const App = () => {
           </p>  
         </div>
       </section>
-      {/* <section className="section">
+      <section className="section">
         <Nav />
-        <Routes />
-      </section>  */}
+        {/* <Routes /> */}
+      </section> 
     </div>  
   )
 }

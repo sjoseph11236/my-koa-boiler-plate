@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const { db } = require('./db/');
 const send = require('koa-send');
+const Router = require('koa-router');
 const logger = require('koa-logger');
 const static = require('koa-static');
 const session = require('koa-session');
@@ -37,6 +38,7 @@ app.use(async (ctx, next) => {
     console.log('here')
     await next();
   } catch (err) {
+    console.error(err);
     ctx.throw(err.status || 500, err.message || 'Internal Server Error');
   }
 });
@@ -58,16 +60,24 @@ app.use(passport.session());
 // Static middlware
 app.use(static('./public'));
 
-// Sends index.html
-// app.use( async (ctx) => {
-//   await send(ctx, ctx.path, { root: __dirname + '/public' });
-// })
+const router = new Router();
 
-app.use(async (ctx) => {
+router.get('*', async ctx => { 
+  console.log('here too')
   await send(ctx, '../public/index.html');
+});
+
+// Sends index.html
+app.use( async (ctx) => {
+  await send(ctx, ctx.path, { root: __dirname + '/public' });
 })
 
+// app.use(async (ctx) => {
+//   await send(ctx, '../public/index.html');
+// })
+
 // // Router Middleware
+app.use(router.routes());
 app.use(apiRouter.routes());
 app.use(authRouter.routes());
 
